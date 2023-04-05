@@ -1,8 +1,11 @@
-import React from "react";
+const ErrorMessageStyle = {
+  display: "flex",
+  justifyContent: "center",
+};
 
 function Error() {
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={ErrorMessageStyle}>
       Something went wrong, please try again later
     </div>
   );

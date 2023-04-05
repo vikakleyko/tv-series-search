@@ -29,6 +29,10 @@ const InputStyle = {
   width: "100%",
 };
 
+const SeriesItemStyle = {
+  textDecoration: "none",
+};
+
 function Search() {
   const [filter, setFilter] = useState("");
   const [series, setSeries] = useState<TVMazeSeries[]>([]);
@@ -53,7 +57,7 @@ function Search() {
           <div style={SeriesContainerStyle as CSSProperties}>
             {series.map((item, i) => (
               <Link
-                style={{ textDecoration: "none" }}
+                style={SeriesItemStyle}
                 key={i}
                 to={{
                   pathname: `/tvseries/${item.show.id}`,
