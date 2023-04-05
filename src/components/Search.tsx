@@ -1,10 +1,10 @@
 import { useEffect, CSSProperties, useState } from "react";
 import { Link } from "react-router-dom";
 import Error from "./Error";
-import { useSearch } from "./hooks/useSearch";
+import { useSearch } from "../hooks/useSearch";
 import Loading from "./Loading";
 import SeriesItem from "./SeriesItem";
-import { TVMazeSeries } from "./types";
+import { TVMazeSeries } from "../lib/types";
 
 const SearchWrapperStyle = {
   display: "flex",
@@ -18,6 +18,7 @@ const SearchWrapperStyle = {
 const SeriesContainerStyle = {
   display: "flex",
   flexWrap: "wrap",
+  textDecoration: "none",
 };
 
 const InputStyle = {
@@ -55,7 +56,7 @@ function Search() {
               <Link
                 key={i}
                 to={{
-                  pathname: `/details/${item.show.id}`,
+                  pathname: `/tvseries/${item.show.id}`,
                 }}
                 state={{ id: item.show.id }}
               >

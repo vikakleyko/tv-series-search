@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Series } from "../types";
+import { Series } from "../lib/types";
 
 export const useSeriesDetails = (id: string | undefined) => {
   const [data, setData] = useState<Series>();

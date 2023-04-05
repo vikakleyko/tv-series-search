@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import { TVMazeSeries } from "../types";
+import { TVMazeSeries } from "../lib/types";
 
 export const useSearch = (filter: string | undefined) => {
   const [loading, setLoading] = useState(false);

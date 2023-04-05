@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Error from "./Error";
-import { useSeriesDetails } from "./hooks/useSeriesDetails";
+import { useSeriesDetails } from "../hooks/useSeriesDetails";
 import Loading from "./Loading";
 
 const SeriesDetailsStyle = {

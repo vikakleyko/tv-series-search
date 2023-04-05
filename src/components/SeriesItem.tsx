@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { TVMazeSeries } from "./types";
+import { TVMazeSeries } from "../lib/types";
 
 const SeriesItemStyle = {
   display: "flex",
