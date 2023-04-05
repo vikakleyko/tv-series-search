@@ -7,9 +7,9 @@ import SeriesItem from "./SeriesItem";
 import { TVMazeSeries } from "../lib/types";
 
 const SearchWrapperStyle = {
+  alignItems: "center",
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
   "@media (maxWidth: 500px)": {
     justifyContent: "center",
   },
@@ -18,16 +18,15 @@ const SearchWrapperStyle = {
 const SeriesContainerStyle = {
   display: "flex",
   flexWrap: "wrap",
-  textDecoration: "none",
 };
 
 const InputStyle = {
-  width: "100%",
+  borderColor: "blue",
+  borderRadius: "10px",
+  margin: "10px",
   maxWidth: "200px",
   padding: "10px",
-  margin: "10px",
-  borderRadius: "10px",
-  borderColor: "blue",
+  width: "100%",
 };
 
 function Search() {
@@ -54,6 +53,7 @@ function Search() {
           <div style={SeriesContainerStyle as CSSProperties}>
             {series.map((item, i) => (
               <Link
+                style={{ textDecoration: "none" }}
                 key={i}
                 to={{
                   pathname: `/tvseries/${item.show.id}`,

@@ -5,9 +5,9 @@ import { useSeriesDetails } from "../hooks/useSeriesDetails";
 import Loading from "./Loading";
 
 const SeriesDetailsStyle = {
+  alignItems: "center",
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
   padding: "30px",
 };
 
