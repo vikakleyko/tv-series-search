@@ -7,6 +7,7 @@ export type Series = {
   name: string;
   id: number;
   genres: string[];
+  premiered: string;
   runtime: number;
   url: string;
   image: {

@@ -8,6 +8,11 @@ const Series = styled.div`
   width: 200px;
 `;
 
+const Text = styled.div`
+  color: blue;
+  padding-top: 5px;
+`;
+
 function SeriesItem(item: TVMazeSeries) {
   const {
     score,
@@ -17,8 +22,8 @@ function SeriesItem(item: TVMazeSeries) {
   return (
     <Series>
       <img src={image?.medium} alt={name} />
-      <div>Name: {name}</div>
-      <div>Score: {score}</div>
+      <Text>Name: {name}</Text>
+      <Text>Score: {score}</Text>
     </Series>
   );
 }
