@@ -36,11 +36,11 @@ const SeriesItemStyle = {
 function Search() {
   const [filter, setFilter] = useState("");
   const [series, setSeries] = useState<TVMazeSeries[]>([]);
-  const { data, loading, error, refetch } = useSearch(filter);
+  const { data, isLoading, isError, isFetching, refetch } = useSearch(filter);
 
   useEffect(() => {
     setSeries(data ?? []);
-  }, [data, loading]);
+  }, [data]);
 
   return (
     <>
@@ -70,8 +70,8 @@ function Search() {
           </div>
         </div>
       )}
-      {loading && <Loading />}
-      {error && <Error />}
+      {(isLoading || isFetching) && <Loading />}
+      {isError && <Error />}
     </>
   );
 }
