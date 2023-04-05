@@ -1,12 +1,12 @@
-import { CSSProperties } from "react";
+import styled from "styled-components";
 import { TVMazeSeries } from "../lib/types";
 
-const SeriesItemStyle = {
-  display: "flex",
-  flexDirection: "column",
-  padding: "30px",
-  width: "200px",
-};
+const Series = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  width: 200px;
+`;
 
 function SeriesItem(item: TVMazeSeries) {
   const {
@@ -15,11 +15,11 @@ function SeriesItem(item: TVMazeSeries) {
   } = item;
 
   return (
-    <div style={SeriesItemStyle as CSSProperties}>
+    <Series>
       <img src={image?.medium} alt={name} />
       <div>Name: {name}</div>
       <div>Score: {score}</div>
-    </div>
+    </Series>
   );
 }
 

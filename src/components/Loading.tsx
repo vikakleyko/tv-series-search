@@ -1,10 +1,11 @@
-const LoadingMessageStyle = {
-  display: "flex",
-  justifyContent: "center",
-};
+import styled from "styled-components";
 
+const Text = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 function Loading() {
-  return <div style={LoadingMessageStyle}>Loading...</div>;
+  return <Text>Loading...</Text>;
 }
 
 export default Loading;

@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import Error from "./Error";
 import { useSeriesDetails } from "../hooks/useSeriesDetails";
 import Loading from "./Loading";
+import styled from "styled-components";
 
-const SeriesDetailsStyle = {
-  alignItems: "center",
-  display: "flex",
-  flexDirection: "column",
-  padding: "30px",
-};
+const SeriesDetails = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+`;
 
 function SerieDetails() {
   const { id } = useParams();
@@ -18,13 +19,13 @@ function SerieDetails() {
   return (
     <>
       {serie && (
-        <div style={SeriesDetailsStyle as React.CSSProperties}>
+        <SeriesDetails>
           <img src={serie?.image?.medium} alt={serie?.name} width="200px" />
           <div>Name: {serie?.name}</div>
           <div>Genres: {serie?.genres?.toString()}</div>
           <div>Runtime: {serie?.runtime}</div>
           <a href={serie?.url}>More info</a>
-        </div>
+        </SeriesDetails>
       )}
       {loading && <Loading />}
       {error && <Error />}

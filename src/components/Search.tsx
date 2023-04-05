@@ -1,37 +1,39 @@
-import { useEffect, CSSProperties, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Error from "./Error";
 import { useSearch } from "../hooks/useSearch";
 import Loading from "./Loading";
 import SeriesItem from "./SeriesItem";
 import { TVMazeSeries } from "../lib/types";
+import styled from "styled-components";
 
-const SearchWrapperStyle = {
-  alignItems: "center",
-  display: "flex",
-  flexDirection: "column",
-  "@media (maxWidth: 500px)": {
-    justifyContent: "center",
-  },
-};
+const SeriesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 
-const SeriesContainerStyle = {
-  display: "flex",
-  flexWrap: "wrap",
-};
+  @media (max-width: 480px) {
+    justify-content: center;
+  }
+`;
 
-const InputStyle = {
-  borderColor: "blue",
-  borderRadius: "10px",
-  margin: "10px",
-  maxWidth: "200px",
-  padding: "10px",
-  width: "100%",
-};
+const SearchWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`;
 
-const SeriesItemStyle = {
-  textDecoration: "none",
-};
+const Input = styled.input`
+  border-color: blue;
+  border-radius: 10px;
+  margin: 10px;
+  max-width: 200px;
+  padding: 10px;
+  width: 100%;
+`;
+
+const Item = styled(Link)`
+  text-decoration: none;
+`;
 
 function Search() {
   const [filter, setFilter] = useState("");
@@ -45,19 +47,17 @@ function Search() {
   return (
     <>
       {series && (
-        <div style={SearchWrapperStyle as CSSProperties}>
-          <input
-            style={InputStyle as CSSProperties}
-            placeholder="Enter TV Serie"
+        <SearchWrapper>
+          <Input
+            placeholder="Enter TV Series"
             onChange={(event) => {
               setFilter(event.target.value);
               refetch();
             }}
           />
-          <div style={SeriesContainerStyle as CSSProperties}>
+          <SeriesContainer>
             {series.map((item, i) => (
-              <Link
-                style={SeriesItemStyle}
+              <Item
                 key={i}
                 to={{
                   pathname: `/tvseries/${item.show.id}`,
@@ -65,10 +65,10 @@ function Search() {
                 state={{ id: item.show.id }}
               >
                 <SeriesItem {...item} />
-              </Link>
+              </Item>
             ))}
-          </div>
-        </div>
+          </SeriesContainer>
+        </SearchWrapper>
       )}
       {(isLoading || isFetching) && <Loading />}
       {isError && <Error />}
