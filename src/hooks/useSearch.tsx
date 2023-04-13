@@ -10,7 +10,7 @@ export const useSearch = (filter: string | undefined) => {
   const { data, refetch, isError, isLoading, isFetching } = useQuery<
     TVMazeSeries[]
   >("tvseries", fetchData, {
-    staleTime: 3000,
+    staleTime: Infinity,
   });
 
   return { data, isLoading, isError, isFetching, refetch };
